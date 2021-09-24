@@ -10,12 +10,6 @@
 composer require assoconnect/php-i18n
 ```
 
-## How-to
+## Aim of this package
 
-* Create a project at [SonarCloud](https://sonarcloud.io/projects/create) under the AssoConnect organization with `assoconnect_your-repo` as key and `your-repo` as display name
-* Don't configure the SonarCloud project as the SonarCloud token is already stored at the organization level at Github
-* Code must be placed in `src`
-* Tests must be placed in `tests`
-* Publish it at [Packagist](https://packagist.org/packages/submit)
-* Write a relevant README
-* Remove this how-to section of the README
+This package is useful for features that need country subdivisions to be considered as being part of the country.
