@@ -24,4 +24,14 @@ class CountrySubdivisionResolverTest extends TestCase
         yield 'Greenland' => ['GL', 'DK'];
         yield 'France' => ['FR', 'FR'];
     }
+
+    public function testFilterSubdivisionsWorksCorrectly(): void
+    {
+        $resolver = new CountrySubdivisionResolver();
+        $countryCodes = [
+            'FR' => 'France',
+            'MQ' => 'Martinique'
+        ];
+        $this->assertSame(['FR' => 'France'], $resolver->filterSubdivisions($countryCodes));
+    }
 }
