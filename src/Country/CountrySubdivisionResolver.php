@@ -16,7 +16,7 @@ class CountrySubdivisionResolver
         'PF' => 'FR', // Polynésie française
         'PM' => 'FR', // Saint-Pierre-et-Miquelon
         'RE' => 'FR', // La Réunion
-        'TF' => 'FR', // Terres australes françaises[6]
+        'TF' => 'FR', // Terres australes françaises
         'WF' => 'FR', // Wallis-et-Futuna
         'YT' => 'FR', // Mayotte
         // Denmark
@@ -26,6 +26,18 @@ class CountrySubdivisionResolver
         'GG' => 'GB', // Guernsey
         'IM' => 'GB', // Isle of Man
         'JE' => 'GB', // Jersey
+    ];
+
+    public const SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES = [
+        'BL', // Saint-Barthélemy
+        'GF', // Guyane (française)
+        'GP', // Guadeloupe
+        'MF', // Saint-Martin
+        'MQ', // Martinique
+        'PM', // Saint-Pierre-et-Miquelon
+        'RE', // La Réunion
+        'TF', // Terres australes françaises
+        'YT' // Mayotte
     ];
 
     /**
@@ -42,15 +54,14 @@ class CountrySubdivisionResolver
     }
 
     /**
-     * Returns an array of type [countryCode => countryName] without subdivision ones
+     * Returns an array of type [countryCode => countryName] without subdivisions that aren't considered as countries
      */
     public static function filterSubdivisions(array $countryCodesAndNames): array
     {
-        $countrySubdivisionsKeys = array_keys(self::SUBDIVISION_CODES);
         return array_filter(
             $countryCodesAndNames,
-            function ($countryName, $countryCode) use ($countrySubdivisionsKeys) {
-                return !in_array($countryCode, $countrySubdivisionsKeys);
+            function ($countryName, $countryCode) {
+                return !in_array($countryCode, self::SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES);
             },
             ARRAY_FILTER_USE_BOTH
         );
