@@ -30,8 +30,12 @@ class CountrySubdivisionResolverTest extends TestCase
         $resolver = new CountrySubdivisionResolver();
         $countryCodes = [
             'FR' => 'France',
-            'MQ' => 'Martinique'
+            'MQ' => 'Martinique',
+            'NC' => 'Nouvelle-Calédonie'
         ];
-        $this->assertSame(['FR' => 'France'], $resolver->filterSubdivisions($countryCodes));
+        $this->assertSame(
+            ['FR' => 'France', 'NC' => 'Nouvelle-Calédonie'],
+            $resolver->filterSubdivisions($countryCodes)
+        );
     }
 }
