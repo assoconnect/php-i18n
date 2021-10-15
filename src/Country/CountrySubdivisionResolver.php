@@ -46,7 +46,7 @@ class CountrySubdivisionResolver
      */
     public static function resolveCountryCode(string $code): string
     {
-        if (array_key_exists($code, self::SUBDIVISION_CODES)) {
+        if (in_array($code, self::SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES)) {
             return self::SUBDIVISION_CODES[$code];
         }
 
