@@ -20,8 +20,9 @@ class CountrySubdivisionResolverTest extends TestCase
 
     public function provideSubdivisionsAndCountries(): iterable
     {
+        yield 'Mayotte' => ['WF', 'WF'];
         yield 'Guadeloupe' => ['GP', 'FR'];
-        yield 'Greenland' => ['GL', 'DK'];
+        yield 'Greenland' => ['GL', 'GL'];
         yield 'France' => ['FR', 'FR'];
     }
 
