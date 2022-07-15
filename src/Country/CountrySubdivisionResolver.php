@@ -46,7 +46,7 @@ class CountrySubdivisionResolver
      */
     public static function resolveCountryCode(string $code): string
     {
-        if (in_array($code, self::SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES)) {
+        if (in_array($code, self::SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES, true)) {
             return self::SUBDIVISION_CODES[$code];
         }
 
@@ -55,13 +55,15 @@ class CountrySubdivisionResolver
 
     /**
      * Returns an array of type [countryCode => countryName] without subdivisions that aren't considered as countries
+     * @param array<string, string> $countryCodesAndNames
+     * @return array<string, string>
      */
     public static function filterSubdivisions(array $countryCodesAndNames): array
     {
         return array_filter(
             $countryCodesAndNames,
             function ($countryName, $countryCode) {
-                return !in_array($countryCode, self::SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES);
+                return !in_array($countryCode, self::SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES, true);
             },
             ARRAY_FILTER_USE_BOTH
         );

@@ -38,6 +38,6 @@ class CountryIsEuropeanUnionMemberSpecification
 
     public function isSatisfiedBy(string $countryCode): bool
     {
-        return in_array($countryCode, self::EU_CODES);
+        return in_array($countryCode, self::EU_CODES, true);
     }
 }
