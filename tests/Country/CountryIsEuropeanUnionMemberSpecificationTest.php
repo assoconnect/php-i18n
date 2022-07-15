@@ -17,9 +17,10 @@ class CountryIsEuropeanUnionMemberSpecificationTest extends TestCase
         bool $isEuropeanUnionMember
     ): void {
         $specification = new CountryIsEuropeanUnionMemberSpecification();
-        $this->assertSame($isEuropeanUnionMember, $specification->isSatisfiedBy($countryCode));
+        self::assertSame($isEuropeanUnionMember, $specification->isSatisfiedBy($countryCode));
     }
 
+    /** @return mixed[] */
     public function providerCountries(): iterable
     {
         yield 'European' => ['FR', true];

@@ -14,10 +14,10 @@ class CountrySubdivisionResolverTest extends TestCase
      */
     public function testSubdivisionsBelongsToTheRightCountry(string $subdivisionCode, string $countryCode): void
     {
-        $resolver = new CountrySubdivisionResolver();
-        $this->assertSame($countryCode, $resolver->resolveCountryCode($subdivisionCode));
+        self::assertSame($countryCode, CountrySubdivisionResolver::resolveCountryCode($subdivisionCode));
     }
 
+    /** @return mixed[] */
     public function provideSubdivisionsAndCountries(): iterable
     {
         yield 'Mayotte' => ['WF', 'WF'];
@@ -28,15 +28,14 @@ class CountrySubdivisionResolverTest extends TestCase
 
     public function testFilterSubdivisionsWorksCorrectly(): void
     {
-        $resolver = new CountrySubdivisionResolver();
         $countryCodes = [
             'FR' => 'France',
             'MQ' => 'Martinique',
             'NC' => 'Nouvelle-Calédonie'
         ];
-        $this->assertSame(
+        self::assertSame(
             ['FR' => 'France', 'NC' => 'Nouvelle-Calédonie'],
-            $resolver->filterSubdivisions($countryCodes)
+            CountrySubdivisionResolver::filterSubdivisions($countryCodes)
         );
     }
 }
