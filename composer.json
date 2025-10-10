@@ -27,9 +27,10 @@
         "phpstan/phpstan": "^1.4",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-strict-rules": "^1.1",
-        "roave/no-floaters": "^1.5"
+        "roave/no-floaters": "^1.5",
+        "rector/rector": "^1.2"
     },
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^8.2"
     }
 }
