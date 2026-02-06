@@ -22,7 +22,6 @@
         }
     },
     "require-dev": {
-        "roave/no-floaters": "^1.5",
         "assoconnect/php-quality-config": "^2"
     },
     "require": {
