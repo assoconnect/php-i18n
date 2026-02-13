@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class CountryIsEuropeanUnionMemberSpecificationTest extends TestCase
 {
     /**
-     * @dataProvider providerCountries()
+     * @dataProvider providerCountries
      */
     public function testCountryIsEuropeanUnionMemberSpecificationWorksCorrectly(
         string $countryCode,
@@ -21,7 +21,7 @@ class CountryIsEuropeanUnionMemberSpecificationTest extends TestCase
     }
 
     /** @return mixed[] */
-    public function providerCountries(): iterable
+    public static function providerCountries(): iterable
     {
         yield 'European' => ['FR', true];
         yield 'Not european' => ['GB', false];

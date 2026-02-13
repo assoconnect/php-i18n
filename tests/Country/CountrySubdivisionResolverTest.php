@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class CountrySubdivisionResolverTest extends TestCase
 {
     /**
-     * @dataProvider provideSubdivisionsAndCountries()
+     * @dataProvider provideSubdivisionsAndCountries
      */
     public function testSubdivisionsBelongsToTheRightCountry(string $subdivisionCode, string $countryCode): void
     {
@@ -18,7 +18,7 @@ class CountrySubdivisionResolverTest extends TestCase
     }
 
     /** @return mixed[] */
-    public function provideSubdivisionsAndCountries(): iterable
+    public static function provideSubdivisionsAndCountries(): iterable
     {
         yield 'Mayotte' => ['WF', 'WF'];
         yield 'Guadeloupe' => ['GP', 'FR'];
