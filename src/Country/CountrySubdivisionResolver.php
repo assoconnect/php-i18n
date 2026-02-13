@@ -62,7 +62,7 @@ class CountrySubdivisionResolver
     {
         return array_filter(
             $countryCodesAndNames,
-            static function ($countryName, $countryCode) {
+            static function (string $countryName, string $countryCode): bool {
                 return !in_array($countryCode, self::SUBDIVISION_NOT_CONSIDERED_AS_COUNTRIES, true);
             },
             ARRAY_FILTER_USE_BOTH
