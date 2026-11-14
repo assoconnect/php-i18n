@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace AssoConnect\PhpI18n\Tests\Country;
 
 use AssoConnect\PhpI18n\Country\CountrySubdivisionResolver;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class CountrySubdivisionResolverTest extends TestCase
 {
-    /**
-     * @dataProvider provideSubdivisionsAndCountries
-     */
+    #[DataProvider('provideSubdivisionsAndCountries')]
     public function testSubdivisionsBelongsToTheRightCountry(string $subdivisionCode, string $countryCode): void
     {
         self::assertSame($countryCode, CountrySubdivisionResolver::resolveCountryCode($subdivisionCode));
